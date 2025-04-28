@@ -21,7 +21,7 @@ export const AllTodo = async () => {
         // const res = await fetch("http://localhost:3000/api/todo",  {
         //     method:'GET'
         // })
-        const res = await fetch(`${API_URL}`,{cache: 'no-cache'})
+        const res = await fetch(`${API_URL}/api/todo`,{cache: 'no-cache'})
         //res: will back multiple value with differnet type, so we need interface when using that interface must mention as array, TodoItemsProps our interface but we will use as array: TodoItemsProps[], basuce the res data is array of objects
         const todoList: TodoItemsProps[] =  await res.json()
         // console.log(todoList)

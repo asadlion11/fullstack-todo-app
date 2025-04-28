@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label'
 import toast from 'react-hot-toast'
 import AllTodo from './AllTodo'
 import { useRouter } from "next/navigation"
+import { API_URL } from '@/lib/config'
 
 const TodoForm = () => {
     // const [title, setTitle] = useState<string | null>(null)
@@ -28,7 +29,7 @@ const TodoForm = () => {
       //fetch api to post(request) the data from ui
       try {
         // Send a POST request to the API with the form data as JSON
-        const res = await fetch('http://localhost:3000/api/todo', {
+        const res = await fetch(`${API_URL}/api/todo`, {
           method: 'POST',
           // POST with JSON body — title won’t appear in the URL
           headers: { 'Content-Type': 'application/json' }, 

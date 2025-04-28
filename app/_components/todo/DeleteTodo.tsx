@@ -17,7 +17,7 @@ const DeleteTodo = ( {todoId, todoTitle}:  {todoId : string, todoTitle: string})
     const handleDelete = async () => {
       if (window.confirm(`Are you sure you want to delete ${todoTitle} todo?`)) {
         try {
-          await fetch(`${API_URL}${todoId}`, {
+          await fetch(`${API_URL}/api/todo/${todoId}`, {
             method: 'DELETE',
           })
           router.refresh()

@@ -12,7 +12,7 @@ const DoneTodo = ({todoId, isDone}: {todoId: string, isDone: boolean}) => {
         const newStatus = !isDone
         //varible newStatus (frontend) === variable isDone (backend(in app/api/todo/id/route.ts(inside PUT fucntion)))
         
-        await fetch(`${API_URL}${todoId}`, {
+        await fetch(`${API_URL}/api/todo/${todoId}`, {
           method: 'PUT',
           //sending the ui
           //Send data by converting it to JSON using JSON.stringify()
