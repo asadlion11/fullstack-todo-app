@@ -17,7 +17,7 @@ export const PUT = async (req: NextRequest, {params} : {params: Promise<Params>}
         //// Server receives and parses JSON body from the client into isDone
         const isDone = await req.json() // <-- receiving newStatus into isDone
         //varible newStatus (frontend(app/components/DoneTodo(inside handleDone function))) === variable isDone (backend)
-        await TodoModel.findByIdAndUpdate(params.id, {isDone: isDone})
+        await TodoModel.findByIdAndUpdate((await params).id, {isDone: isDone})
         return NextResponse.json({message: "Todo updated successfully"}, {status: 200})
     } catch (error) {
         console.error(error)
@@ -30,7 +30,7 @@ export const PUT = async (req: NextRequest, {params} : {params: Promise<Params>}
 export const DELETE = async (req: NextRequest, {params} : {params: Promise<Params>}) => {
     try {
         await dbConnection()
-        await TodoModel.findByIdAndDelete(params.id)
+        await TodoModel.findByIdAndDelete((await params).id)
         return NextResponse.json({message: "Todo deleted successfully"}, {status: 200})
     } catch (error) {
         console.error(error)
