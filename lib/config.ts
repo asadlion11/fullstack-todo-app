@@ -1,1 +1,1 @@
-export const API_URL = process.env.NODE_ENV === 'production' ? 'https://fullstack-todo-app-git-main-asadlion11s-projects.vercel.app/' : 'http://localhost:3000'
+export const API_URL = process.env.NODE_ENV === 'production' ? 'https://todoforeveryone.vercel.app/' : 'http://localhost:3000'
