@@ -10,7 +10,7 @@ interface Params {
 //Update The Data specially the isDone field
 //get the id of todo you want to update((to get the todo id use params))
 // id: is the identifier the todo what you are updating
-export const PUT = async (req: NextRequest, {params} : {params: Params}) => {
+export const PUT = async (req: NextRequest, {params} : {params: Promise<Params>}) => {
     try {
         await dbConnection()
         // Receive and parse JSON data using req.json()
@@ -27,7 +27,7 @@ export const PUT = async (req: NextRequest, {params} : {params: Params}) => {
 ////Delete Method(DELETE)
 //get the id of todo you want to delete(to get the todo id use params)
 // id: is the identifier the todo what you are updating
-export const DELETE = async (req: NextRequest, {params} : {params: Params}) => {
+export const DELETE = async (req: NextRequest, {params} : {params: Promise<Params>}) => {
     try {
         await dbConnection()
         await TodoModel.findByIdAndDelete(params.id)
